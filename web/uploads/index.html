@@ -1,0 +1,70 @@
+
+<html>
+    <head>
+        <title>Python Hologram</title>
+        <link rel="stylesheet" type="text/css" href="http://localhost:3000/style.css">
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    </head>
+    <body>
+        <script type="text/javascript">
+            var socket = io.connect('http://localhost:3000');
+            socket.on('goRefresh',function(data){
+                alert(data.msg);
+                var time = new Date().getTime();
+                var src = 'http://localhost:3000/image.png?time='+time;
+
+                $('img').attr('src', src);
+            });
+        </script>
+
+        <div class="container">
+            <div class"t1">
+                <div class="sides">
+                    <div class="view">
+                    </div>
+                </div>
+                <div class="sides">
+                    <div class="view">
+                        <img class="f1" src="http://localhost:3000/image.png">
+                    </div>
+                </div>
+                <div class="sides">
+                    <div class="view">
+                    </div>
+                </div>
+            </div>
+            <div class"t1">
+                <div class="sides">
+                    <div class="view">
+                        <img class="f2" src="http://localhost:3000/image.png">
+                    </div>
+                </div>
+                <div class="sides">
+                    <div class="view">
+                    </div>
+                </div>
+                <div class="sides">
+                    <div class="view">
+                        <img class="f3" src="http://localhost:3000/image.png">
+                    </div>
+                </div>
+            </div>
+            <div class"t1">
+                <div class="sides">
+                    <div class="view ">
+                    </div>
+                </div>
+                <div class="sides">
+                    <div class="view ">
+                        <img class="f4" src="http://localhost:3000/image.png">
+                    </div>
+                </div>
+                <div class="sides">
+                    <div class="view">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
