@@ -1,97 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Python Hologram</title>
-</head>
-<body>
-
-<style>
-
-    *{
-        margin: 0;
-        padding:0;
-    }
-
-    .container {
-        position: absolute;
-        width: 800px;
-        height:800px;
-        /*height:100%;*/
-        background-color: yellow;
-        left:50%;
-        top:150px;
-        margin-left: -400px;
-
-        -webkit-transform: rotate(-45deg);
-        -moz-transform: rotate(-45deg);
-        transform: rotate(-45deg);
-
-
-    }
-
-    .sides{
-        position: relative;
-        width:400px;
-        height:400px;
-        background-color: greenyellow;
-        float:left;
-    }
-
-    .view {
-        margin: 0;
-        padding:0;
-        transform-origin: 200px 200px;
-    }
-
-    .view img {
-        width: 400px;
-        height: 400px;
-
-    }
-
-
-    .first {
-        -webkit-transform: rotate(0deg);
-    }
-
-    .second {
-        -webkit-transform: rotate(90deg);
-    }
-
-    .third {
-        -webkit-transform: rotate(270deg);
-    }
-
-    .forth {
-        -webkit-transform: rotate(180deg);
-    }
-
-</style>
-
-<div class="container">
-    <div class="sides">
-        <div class="view first">
-            <img src="voice.gif">
+<html>
+    <head>
+        <title>Python Hologram</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class"t1">
+                <div class="sides">
+                    <div class="view">
+                    </div>
+                </div>
+                <div class="sides">
+                    <div class="view">
+                        <img class="f1" src="voice.gif">
+                    </div>
+                </div>
+                <div class="sides">
+                    <div class="view">
+                    </div>
+                </div>
+            </div>
+            <div class"t1">
+                <div class="sides">
+                    <div class="view">
+                        <img class="f2" src="voice.gif">
+                    </div>
+                </div>
+                <div class="sides">
+                    <div class="view">
+                    </div>
+                </div>
+                <div class="sides">
+                    <div class="view">
+                        <img class="f3" src="voice.gif">
+                    </div>
+                </div>
+            </div>
+            <div class"t1">
+                <div class="sides">
+                    <div class="view ">
+                    </div>
+                </div>
+                <div class="sides">
+                    <div class="view ">
+                        <img class="f4" src="voice.gif">
+                    </div>
+                </div>
+                <div class="sides">
+                    <div class="view">
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="sides">
-        <div class="view second">
-            <img src="voice.gif">
-        </div>
-    </div>
-    <div class="sides">
-        <div class="view third">
-            <img src="voice.gif">
-        </div>
-    </div>
-    <div class="sides">
-        <div class="view forth">
-            <img src="voice.gif">
-        </div>
-    </div>
-
-</div>
-
-</body>
+    </body>
 </html>
