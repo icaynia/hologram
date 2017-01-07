@@ -1,20 +1,15 @@
-
-import ImageUpload
+import RequestHologram
 import tkinter
 from tkinter import filedialog
 from tkinter import messagebox
 from tkinter.constants import *
-import os
-import time
 try:
     from PIL import Image
     from PIL import ImageTk #gif 및 jpg bmp 파일을 읽을 수 있다.
 except ImportError as err :
     messagebox.showerror("모듈 없음", "PIL 모듈을 설치해주세요")
-try:
-    import requests
-except ImportError as err:
-    messagebox.showerror("모듈 없음", "requests 모듈을 설치해주세요")
+
+ip = "http://192.168.123.189:3000/upload"
 
 class HologramImageUpload:
     def __init__ (self):
@@ -43,7 +38,7 @@ class HologramImageUpload:
             self.label.image=ImageTk.PhotoImage(self.image)
             tkinter.Label.__init__(self.label, self.root, image = self.label.image, bd = 0)
             self.label.pack(side = tkinter.constants.TOP)
-            ImageUpload.sendImage("hologram-ftp.icaynia.com","ww_ghaha12", "tktk8899", self.FilePath)
+            RequestHologram.sendGifImage(ip, self.FilePath)
 
     def urlLinkInput_Return(self, event):
         sendUrlLink()
@@ -51,6 +46,9 @@ class HologramImageUpload:
         sendUrlLink()        
     def sendUrlLink(self):
         self.urlLink = str(self.urlLinkInput.get())
+        if(self.urlLInk == ""):
+            return 
+        RequestHologram.sendUrlLink(ip, self.urlLink)
 
 
 Client = HologramImageUpload()
