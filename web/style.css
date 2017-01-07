@@ -8,9 +8,9 @@
 
     .container {
         position: absolute;
-        width: 800px;
-        height:800px;
-        background-color: yellow;
+        width: 500px;
+        height:500px;
+        background-color: black;
         left:50%;
         top:150px;
         margin-left: -400px;
@@ -20,7 +20,7 @@
         position: relative;
         width:33%;
         height:33%;
-        background-color: greenyellow;
+        background-color: black;
         float:left;
     }
 
