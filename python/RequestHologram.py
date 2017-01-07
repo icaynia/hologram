@@ -6,7 +6,7 @@ except ImportError as err:
 def sendGifImage(url = "", filePath = ""):
     if(url == "" or filePath == ""):
         return -1
-    image = {'image' :('image.png', open(filePath, 'rb'), 'image/png', {'Exprice': 0})}
+    image = {'image' :('image.gif', open(filePath, 'rb'), 'image/gif', {'Exprice': 0})}
 
     r = requests.post(url,files = image)
 
