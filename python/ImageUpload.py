@@ -1,8 +1,9 @@
 import ftplib
-def sendImage(ImageName):
+def sendImage(ftpHost, ftpUser, FtpPasswd, ImageName):
     try: 
-        ftpName = ftplib.FTP(host = "hologram.icaynia.com", user = "ww_ghaha12", passwd= "tktk8899")
+        ftpName = ftplib.FTP(host = ftpHost, user = ftpUser, passwd= FtpPasswd)
         ftpName.cwd('/')
-        ftpName.storbinary("STOR asldkfj.jpg", open(ImageName,"rb"))
+        ftpName.storbinary("STOR image", open(ImageName,"rb"))
+        ftpName.close()
     except FileNotFoundError as err:
         return -1
