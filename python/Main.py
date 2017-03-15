@@ -1,4 +1,3 @@
-import RequestHologram
 import tkinter
 from tkinter import filedialog
 from tkinter import messagebox
@@ -6,8 +5,10 @@ from tkinter.constants import *
 try:
     from PIL import Image
     from PIL import ImageTk #gif 및 jpg bmp 파일을 읽을 수 있다.
+    import RequestHologram
 except ImportError as err :
-    messagebox.showerror("error", "pleas, install PIL module")
+    messagebox.showerror("error", "please, install PIL module and request module")
+    exit()
 
 ip = "http://192.168.123.189:3000/upload"
 
@@ -41,9 +42,9 @@ class HologramImageUpload:
             RequestHologram.sendGifImage(ip, self.FilePath)
 
     def urlLinkInput_Return(self, event):
-        sendUrlLink()
+        self.sendUrlLink()
     def urlLinkInputButton_Clicked(self):
-        sendUrlLink()        
+        self.sendUrlLink()
     def sendUrlLink(self):
         self.urlLink = str(self.urlLinkInput.get())
         if(self.urlLInk == ""):
