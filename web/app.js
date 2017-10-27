@@ -1,7 +1,9 @@
-var express = require('express');
-var path = require('path');
-var logger = require('morgan');
-var multer  = require('multer');
+import path from 'path';
+import http from 'http';
+import logger from 'morgan';
+import multer from 'multer';
+import Express from 'express';
+import SocketIO from 'socket.io';
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -13,23 +15,26 @@ var storage = multer.diskStorage({
 });
 var upload = multer({ storage: storage });
 
-var app = express();
-var socketIO = require('socket.io');
-var io = socketIO();
-app.io = io;
+const port = process.env.port || 3000;
+const app = Express();
+const server = http.createServer(app);
+const io = SocketIO();
 
-app.use(express.static(path.join(__dirname, 'uploads')));
+io.attach(server);
+
+app.set('port', port);
+app.use(Express.static(path.join(__dirname, 'uploads')));
 
 app.post('/upload', function (req, res, next) {
   console.log(req);
   var uploaded = upload.any();
-  uploaded(req, res, function(err) {
+  uploaded(req, res, function (err) {
     if (err) {
       res.status(500).end();
     }
-    io.emit('goRefresh', {msg:'The file is uploaded!'});
+    io.emit('goRefresh', { msg: 'The file is uploaded!' });
     res.status(204).end();
   });
 });
 
-module.exports = app;
+server.listen(port);
